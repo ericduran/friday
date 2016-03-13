@@ -1,0 +1,4 @@
+FridayMusicStop stop the music
+FridayMusicStop pause the music
+FridayMusicStop pause sonos
+FridayMusicStop stop sonos

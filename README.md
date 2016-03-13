@@ -1,2 +1,11 @@
-# friday
-An Amazon Echo replacement for my house
+# Friday
+An API for your Home.
+
+Notes:
+
+TODO:
+ - Amazon Echo Skill
+ - Sonos Integration
+ - Hue Integration
+ 
+ 

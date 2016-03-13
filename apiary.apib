@@ -1,0 +1,100 @@
+FORMAT: 1A
+HOST: http://api.ericduran.io/
+
+# Friday
+
+Friday is a simple API allowing devices in my house to be controlled via a simple RESTful API.
+
+NOTE: http://api.ericduran.io only resolves in ericduran's house ;-p
+
+See: https://github.com/ericduran/friday
+
+
+# Friday API Root [/]
+
+This resource does not have any attributes. Instead it offers the initial
+API affordances in the form of the links in the JSON body.
+
+## Retrieve the Entry Point [GET]
+
++ Response 200 (application/json)
+
+        {
+            "welcome": "Welcome to the Metadata Services Content API",
+            "links": {
+                "music": "/music",
+                "lights": "/lights",
+                "devices": "/devices"
+            }
+        }
+
+## Group Music
+
+Resources related to music in the house. All speakers in the house are Sonos devices. 
+
+## Music [/music]
+
+A Music object has the following attributes:
+
++ currentTrack
++ nextTrack
++ playerState
++ volume
++ zoneState
+
+
+### View Music State [GET]
+
++ Response 200 (application/json)
+
+        {
+          "currentTrack":{
+            "artist": "octobersveryown",
+            "title": "Drake - Back to Back Freestyle",
+            "album": "",
+            "albumArtURI":"/getaa?s=1&u=x-sonos-http%3atrack%253a216846955.mp3%3fsid%3d160%26flags%3d8224%26sn%3d10",
+            "duration":172,
+            "uri": "x-sonos-http:track%3a216846955.mp3?sid=160&flags=8224&sn=10"
+            "radioShowMetaData": "",
+            "streamInfo": "",
+            "type": "track",
+            "absoluteAlbumArtURI": "http://10.0.1.4:1400/getaa?s=1&u=x-sonos-http%3atrack%253a216846955.mp3%3fsid%3d160%26flags%3d8224%26sn%3d10"
+          },
+          "elapsedTime": 15,
+          "elapsedTimeFormatted":"00:15",
+          "mute":false,
+          "nextTrack":{
+            uri: "x-sonos-http:track%3a211417319.mp3?sid=160&flags=8224&sn=10",
+            albumArtURI: "/getaa?s=1&u=x-sonos-http%3atrack%253a211417319.mp3%3fsid%3d160%26flags%3d8224%26sn%3d10",
+            title: "Travis Scott - Antidote",
+            artist: "TravisScott",
+            absoluteAlbumArtURI: "http://10.0.1.4:1400/getaa?s=1&u=x-sonos-http%3atrack%253a211417319.mp3%3fsid%3d160%26flags%3d8224%26sn%3d10"
+          },
+          "playerState": "PLAYING",
+          "trackNo": 1,
+          "volume": 16,
+          "zoneState": "PLAYING",
+          "zonePlayMode":{
+            "shuffle": fase,
+            "repeat": false,
+            "crossfade": false
+          }
+        }
+
+## Next Track [/music/next/{?rooms}]
+
+### Play next track [GET]
+
++ Response 200 (application/json)
+
+## Previous Track [/music/previous{?rooms}]
+
+### Play previous track [GET]
+
++ Response 200 (application/json)
+
+## List rooms  [/music/rooms]
+
+### List all available rooms [GET]
+
++ Response 200 (application/json)
